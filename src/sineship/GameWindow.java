@@ -42,7 +42,16 @@ public class GameWindow extends JFrame
                System.out.println("toggling");
                panel.toggle();
            }
-           
+           if(e.getKeyChar() =='a'){
+               panel.stageMaster.xPos-=10;
+           }
+            if(e.getKeyChar() =='d'){
+               panel.stageMaster.xPos+=10;
+           }
+            
+            
+          if(e.getKeyChar()=='w'||e.getKeyChar()=='W') panel.itteration++;
+           if(e.getKeyChar()=='s'||e.getKeyChar()=='S') panel.itteration--;
            
            
            
