@@ -29,12 +29,16 @@ public class StageMaster{
     public BufferedImage ship_fire;
     public BufferedImage BackGround;
     
+    public int xPos =0;
+    
+    
+    
     public GamePane stage;
     public StageMaster(GamePane stage){
         this.stage = stage;
         try{
-       ship = ImageIO.read(this.getClass().getResourceAsStream("/res/ship.png"));
-       ship_fire = ImageIO.read(this.getClass().getResourceAsStream("/res/ship_fire.png"));
+       ship = ImageIO.read(this.getClass().getResourceAsStream("/res/ship(2).png"));
+       ship_fire = ImageIO.read(this.getClass().getResourceAsStream("/res/ship_fire(2).png"));
        
        BackGround = ImageIO.read(this.getClass().getResourceAsStream("/res/BackGround.jpg"));
        
@@ -53,18 +57,18 @@ public class StageMaster{
                 
                 Stroke dashed = new BasicStroke(3, BasicStroke.CAP_BUTT, BasicStroke.JOIN_BEVEL, 0, new float[]{9}, 0);
                 g.setStroke(dashed);
-                g.setColor(Color.green);
-                /*
-                g.drawLine(0, 0, stage.getWidth()/2, yLoc);
-                g.drawLine(stage.getWidth(),0 , stage.getWidth()/2, yLoc);
+                g.setColor(Color.white);
                 
-                g.drawLine(0, stage.getHeight(), stage.getWidth()/2, yLoc); 
+                g.drawLine(0, 0, (stage.getWidth()/2)+xPos, yLoc);
+                g.drawLine(stage.getWidth(),0 , (stage.getWidth()/2)+xPos, yLoc);
                 
-                  g.drawLine(stage.getWidth(),stage.getHeight() , stage.getWidth()/2, yLoc);
-                */
+                g.drawLine(0, stage.getHeight(), (stage.getWidth()/2)+xPos, yLoc); 
+                
+                  g.drawLine(stage.getWidth(),stage.getHeight() , (stage.getWidth()/2)+xPos, yLoc);
+                
                 
               
-                g.drawImage(toDraw, (stage.getWidth()/2)-(ship.getWidth()/8),yLoc,ship.getWidth()/4, ship.getHeight()/4,null);
+                g.drawImage(toDraw, (stage.getWidth()/2)-(ship.getWidth()/8)+xPos,yLoc,ship.getWidth()/4, ship.getHeight()/4,null);
             }
             
 

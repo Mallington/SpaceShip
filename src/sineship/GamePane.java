@@ -10,6 +10,9 @@ import java.awt.event.ActionEvent;
 import javax.swing.*;
 public class GamePane extends JPanel implements Runnable
 {
+    
+    public int itteration =1;
+    
    
     public StageMaster stageMaster;
     public Graphics2D masterGraphics;
@@ -28,7 +31,7 @@ public class GamePane extends JPanel implements Runnable
         
         g.setColor(Color.green);
         g.drawString("Y: "+y, 50, y);
-        y--;
+        y-=itteration;
        
     }
     

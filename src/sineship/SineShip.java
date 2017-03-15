@@ -16,7 +16,7 @@ public class SineShip {
     /**
      * @param args the command line arguments
      */
-      public static GameWindow mainUI;
+      public  static GameWindow mainUI;
     public static void main(String[] args) {
        
           mainUI = new GameWindow(360,710);
