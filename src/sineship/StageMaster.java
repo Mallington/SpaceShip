@@ -30,6 +30,8 @@ public class StageMaster{
     public BufferedImage BackGround;
     public BufferedImage rock_double;
     
+    
+    public Sprite shipSpr;
 
     
     
@@ -42,9 +44,13 @@ public class StageMaster{
        ship_fire = ImageIO.read(this.getClass().getResourceAsStream("/res/ship_fire(1).png"));
        
        BackGround = ImageIO.read(this.getClass().getResourceAsStream("/res/BackGround.jpg"));
+           
        rock_double = ImageIO.read(this.getClass().getResourceAsStream("/res/Rock_Double.png"));
         } 
         catch(Exception e){System.out.println("Failed to find image");}
+        
+        shipSpr = new Sprite();
+        
   }  
     
             public void drawBackground(Graphics2D g){
@@ -70,12 +76,16 @@ public class StageMaster{
                   g.drawLine(0, stage.getHeight(), (stage.getWidth()/2)+xLoc, yLoc); 
                   g.drawLine(stage.getWidth(),stage.getHeight() , (stage.getWidth()/2)+xLoc, yLoc);
                   g.drawString("X: "+xLoc+" Y: "+yLoc, 50, 50);
+                  
+                  
                 }
                   
                  BufferedImage toDraw;
                  if(Math.random()>0.5) toDraw = ship;
                  else toDraw = ship_fire;
-                 g.drawImage(toDraw, (stage.getWidth()/2)-(ship.getWidth()/8)+xLoc,yLoc,ship.getWidth()/4, ship.getHeight()/4,null);
+                // g.drawImage(toDraw, (stage.getWidth()/2)-(ship.getWidth()/8)+xLoc,yLoc,ship.getWidth()/4, ship.getHeight()/4,null);
+                 
+                 shipSpr.drawSprite(g, toDraw,(stage.getWidth()/2)-(ship.getWidth()/8)+xLoc,yLoc,ship.getWidth()/4, ship.getHeight()/4);
             }
             
 
