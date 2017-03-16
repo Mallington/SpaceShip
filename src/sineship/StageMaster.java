@@ -40,13 +40,17 @@ public class StageMaster{
     public StageMaster(GamePane stage){
         this.stage = stage;
         try{
+            int i =0;
        ship = ImageIO.read(this.getClass().getResourceAsStream("/res/ship(1).png"));
+            System.out.println(i++);
        ship_fire = ImageIO.read(this.getClass().getResourceAsStream("/res/ship_fire(1).png"));
-       
-       BackGround = ImageIO.read(this.getClass().getResourceAsStream("/res/BackGround3.png"));
-           
+            System.out.println(i++);
+       BackGround = ImageIO.read(this.getClass().getResourceAsStream("/res/Background3.png"));
+            System.out.println(i++);
        rock_double = ImageIO.read(this.getClass().getResourceAsStream("/res/Rock_Single.png"));
+            System.out.println(i++);
        crashed = ImageIO.read(this.getClass().getResourceAsStream("/res/Crashed.png"));
+            System.out.println("Images Loaded: "+i++ );
         } 
         catch(Exception e){System.out.println("Failed to find image");}
         
