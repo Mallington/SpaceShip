@@ -15,7 +15,7 @@ public class GamePane extends JPanel implements Runnable
     public double sinVal =0;
     public int sinIt =1;
     
-    
+    public int debris =0;
     public int itteration =1;
     
     public boolean debugMode = false;
@@ -28,15 +28,19 @@ public class GamePane extends JPanel implements Runnable
         grabFocus();
         if(sinVal>360 || sinVal<0) sinIt *=-1;
         
+        if(debris>this.getHeight()) debris =0;
+        
+        
         masterGraphics = (Graphics2D) g;
         
         spaceShip.x = (int) (Math.sin(sinVal)*130);
         
         
         stageMaster.drawBackground(masterGraphics);
+        stageMaster.drawSpaceDebris(masterGraphics,0 , debris);
         stageMaster.drawSpaceShip(masterGraphics,(int)spaceShip.getX(),540, debugMode);
         
-        
+        debris++;
       
         sinVal+=((double)sinIt/30);
         

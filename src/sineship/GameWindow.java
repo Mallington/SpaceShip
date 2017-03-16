@@ -37,21 +37,16 @@ public class GameWindow extends JFrame
 
         @Override
         public void keyPressed(KeyEvent e) {
-           
-           if(e.getKeyChar()==32){
+           if (e.getKeyChar() =='d') {panel.debugMode = (!panel.debugMode); System.out.println("Debug Mode "+panel.debugMode);}
+           if(e.getKeyChar()=='p'){
                System.out.println("toggling");
                panel.toggle();
            }
-           if(e.getKeyChar() =='a'){
-               panel.stageMaster.xPos-=10;
-           }
-            if(e.getKeyChar() =='d'){
-               panel.stageMaster.xPos+=10;
-           }
+         
             
             
-          if(e.getKeyChar()=='w'||e.getKeyChar()=='W') panel.itteration++;
-           if(e.getKeyChar()=='s'||e.getKeyChar()=='S') panel.itteration--;
+          if(e.getKeyChar()=='w'||e.getKeyChar()=='W')panel.spaceShip.y-=10;
+           if(e.getKeyChar()=='s'||e.getKeyChar()=='S')panel.spaceShip.y+=10;
            
            
            
