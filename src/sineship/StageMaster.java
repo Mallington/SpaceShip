@@ -33,7 +33,7 @@ public class StageMaster{
     
     public Sprite shipSpr;
 
-    
+    public Sprite debris;
     
     
     public GamePane stage;
@@ -50,6 +50,7 @@ public class StageMaster{
         catch(Exception e){System.out.println("Failed to find image");}
         
         shipSpr = new Sprite();
+        debris = new Sprite();
         
   }  
     
