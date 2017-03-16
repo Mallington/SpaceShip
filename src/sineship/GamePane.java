@@ -11,29 +11,42 @@ import javax.swing.*;
 public class GamePane extends JPanel implements Runnable
 {
     
+    
+    public double sinVal =0;
+    public int sinIt =1;
+    
+    
     public int itteration =1;
     
+    public boolean debugMode = false;
    
     public StageMaster stageMaster;
     public Graphics2D masterGraphics;
     public Image canvas = null;
-    public int y =this.getHeight();
+    public Point spaceShip = new Point(this.getWidth()/2, this.getHeight()/2);
     public void paint(Graphics g){
-        if(y<=0) y = this.getHeight();
+        grabFocus();
+        if(sinVal>360 || sinVal<0) sinIt *=-1;
+        
         masterGraphics = (Graphics2D) g;
         
+        spaceShip.x = (int) (Math.sin(sinVal)*130);
         
         
-        g.setColor(Color.DARK_GRAY);
-        g.fillRect(0, 0, getWidth(), getHeight());
+        stageMaster.drawBackground(masterGraphics);
+        stageMaster.drawSpaceShip(masterGraphics,(int)spaceShip.getX(),540, debugMode);
         
-        stageMaster.drawSpaceShip(masterGraphics,y);
         
-        g.setColor(Color.green);
-        g.drawString("Y: "+y, 50, y);
-        y-=itteration;
-       
+      
+        sinVal+=((double)sinIt/30);
+        
     }
+    
+    
+   public void grabFocus(){
+       this.setFocusable(true);
+       this.setEnabled(true);
+   }
     
     
    public boolean gameAlive = true;
