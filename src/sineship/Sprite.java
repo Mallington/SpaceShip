@@ -16,16 +16,32 @@ import java.awt.image.BufferedImage;
  */
 public class Sprite extends Rectangle{
 
+    public BufferedImage sprImage;
     
     
-    public Sprite(){
+    public Sprite(BufferedImage img){
       
+        sprImage = img;
         this.setBounds(0, 0, 0, 0);
     }
+    public Sprite(){
+    this.setBounds(0, 0, 0, 0);
+}
     
-    public void drawSprite(Graphics2D g, BufferedImage img, int xPos, int yPos, int width, int height){
+    public void asignImage(BufferedImage img){
+        sprImage = img;
+    }
+    
+    public void drawSprite(Graphics2D g,  int xPos, int yPos, int width, int height, boolean drawBounds){
         this.setBounds(xPos, yPos, width, height);
-        g.drawImage(img, xPos,yPos, width, height ,null);
+        g.drawImage(sprImage, xPos,yPos, width, height ,null);
+        
+        if(drawBounds) drawBounds(g);
+        
+    }
+    
+    public void drawBounds(Graphics2D g){
+        g.draw(this);
     }
     
 }

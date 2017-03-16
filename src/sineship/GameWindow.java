@@ -8,11 +8,13 @@ package sineship;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.awt.image.BufferedImage;
+import javax.imageio.ImageIO;
 import javax.swing.*;
 public class GameWindow extends JFrame
 
 {   
-    
+    BufferedImage icon;
     
     public GamePane panel;
    
@@ -20,6 +22,11 @@ public class GameWindow extends JFrame
         this.setSize(width, height);
         panel = new GamePane(width,height);
         panel.addKeyListener(k);
+        
+     
+     
+        
+        
         panel.setFocusable(true);
         panel.setEnabled(true);
         this.setResizable(false);
@@ -48,13 +55,14 @@ public class GameWindow extends JFrame
           if(e.getKeyChar()=='w'||e.getKeyChar()=='W')panel.spaceShip.y-=10;
            if(e.getKeyChar()=='s'||e.getKeyChar()=='S')panel.spaceShip.y+=10;
            
-           
+           if(e.getKeyChar()==32) panel.incDebris =true;
+
            
         }
 
         @Override
         public void keyReleased(KeyEvent e) {
-          
+          if(e.getKeyChar()==32) panel.incDebris =false;
         }
     };
     
@@ -62,7 +70,7 @@ public class GameWindow extends JFrame
     
     
     
-    
+     
    
     
     
