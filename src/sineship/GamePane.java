@@ -11,6 +11,7 @@ import javax.swing.*;
 public class GamePane extends JPanel implements Runnable
 {
     
+    public int idleTime =0;
     
     public double sinVal =0;
     public int sinIt =1;
@@ -72,6 +73,8 @@ public class GamePane extends JPanel implements Runnable
       
         sinVal+=((double)sinIt/30);
                
+        idleTime +=5;
+        
                 
                 
           
@@ -97,6 +100,7 @@ public class GamePane extends JPanel implements Runnable
     }
     
    public void reset(){
+    idleTime =0;
     sinVal =0;
     sinIt =1;
     score =0;
@@ -142,8 +146,10 @@ public class GamePane extends JPanel implements Runnable
             while(gameRunning){
                 
                 
-               if(stageMaster.shipSpr.intersects(stageMaster.debris)) {
+               if(stageMaster.shipSpr.intersects(stageMaster.debris)|| idleTime>1080) {
+                   
                    crashed = true;
+                   System.out.println("idle: "+idleTime);
                    repaint();
                    gameRunning = false;
                    

@@ -19,6 +19,13 @@ public class Sprite extends Rectangle{
     public BufferedImage sprImage;
     
     
+    public int leftTrim =0;
+    public int rightTrim =0;
+    
+    public int topTrim =0;
+    public int bottomTrim;
+    
+    
     public Sprite(BufferedImage img){
       
         sprImage = img;
@@ -32,8 +39,15 @@ public class Sprite extends Rectangle{
         sprImage = img;
     }
     
+    public void setTrim(int left, int right, int top, int bottom){
+        leftTrim = left;
+        rightTrim =right;
+        topTrim = top;
+        bottomTrim = bottom;
+    }
+    
     public void drawSprite(Graphics2D g,  int xPos, int yPos, int width, int height, boolean drawBounds){
-        this.setBounds(xPos, yPos, width, height);
+        this.setBounds(xPos-leftTrim, yPos-topTrim, width+rightTrim, height+bottomTrim);
         g.drawImage(sprImage, xPos,yPos, width, height ,null);
         
         if(drawBounds) drawBounds(g);

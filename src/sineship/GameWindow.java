@@ -55,7 +55,10 @@ public class GameWindow extends JFrame
           if(e.getKeyChar()=='w'||e.getKeyChar()=='W')panel.spaceShip.y-=10;
            if(e.getKeyChar()=='s'||e.getKeyChar()=='S')panel.spaceShip.y+=10;
            
-           if(e.getKeyChar()==32) panel.incDebris =true;
+           if(e.getKeyChar()==32){
+               panel.idleTime =0;
+               panel.incDebris =true;
+           }
 
            
         }
