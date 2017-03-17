@@ -5,6 +5,9 @@
  */
 package sineship;
 
+import java.awt.Dimension;
+import java.awt.Toolkit;
+
 
 
 /**
@@ -19,10 +22,10 @@ public class SineShip {
       public  static GameWindow mainUI;
     public static void main(String[] args) {
        
-          mainUI = new GameWindow(360,710);
-         
+          mainUI = new GameWindow(380,720);
+          Dimension screenSize =  Toolkit.getDefaultToolkit().getScreenSize();
+          mainUI.setLocation((int)(screenSize.getWidth()/2) -(mainUI.getWidth()/2), (int)(screenSize.getHeight()/2) -(mainUI.getHeight()/2));
           mainUI.setVisible(true);
-          
           
     }
     

@@ -23,16 +23,20 @@ public class GameWindow extends JFrame
         panel = new GamePane(width,height);
         panel.addKeyListener(k);
         
-     
-     
+        JTabbedPane tabs = new JTabbedPane();
         
-        
+       
+       
+      
         panel.setFocusable(true);
         panel.setEnabled(true);
-        this.setResizable(false);
-        this.add(panel);
-        this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+        tabs.addTab("Game", panel);
         
+        this.setResizable(false);
+        tabs.add("Secondary",new JPanel());
+        this.add(tabs);
+        this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+         panel.setSize(360, 710);
         
     }
     public KeyListener k = new KeyListener() {
