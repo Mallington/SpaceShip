@@ -112,6 +112,7 @@ public class GamePane extends JPanel implements Runnable
    
     
    public void grabFocus(){
+       
        this.setFocusable(true);
        this.setEnabled(true);
    }
@@ -136,10 +137,6 @@ public class GamePane extends JPanel implements Runnable
       mainThread.start();
     }
     
-   
-    
-    
-    
      public void run(){
          
         while(gameAlive){
@@ -155,11 +152,7 @@ public class GamePane extends JPanel implements Runnable
                    
                }
                
-               else repaint();
-               
-               
-               
-               
+               else repaint();           
                   try{ Thread.sleep(10);} catch(Exception e){}
             }
             try{ Thread.sleep(10);} catch(Exception e){}

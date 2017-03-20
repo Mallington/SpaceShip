@@ -34,7 +34,7 @@ public class GameWindow extends JFrame
         
         this.setResizable(false);
         tabs.add("Secondary",new JPanel());
-        this.add(tabs);
+        this.add(panel);
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
          panel.setSize(360, 710);
         
